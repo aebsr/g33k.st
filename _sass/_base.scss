@@ -28,8 +28,10 @@ h6 {
 }
 
 .masthead {
+    @include user-select(none);
     background: url(../images/alley.jpg) 50% no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     position: relative;
     overflow: hidden;
 
@@ -90,4 +92,8 @@ h6 {
             text-align: center;
         }
     }
+}
+
+section {
+    height: 100%;
 }
