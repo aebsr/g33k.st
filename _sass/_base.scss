@@ -1,0 +1,93 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+* {
+    @include prefixer(box-sizing, border-box, webkit moz spec);
+}
+
+body {
+    overflow: hidden;
+}
+
+html,
+body,
+.masthead {
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.regular {
+    font-style: normal;
+}
+
+.masthead {
+    background: url(/images/alley.jpg) 50% no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+
+    .wrapper {
+        &:before {
+            $green: transparentize(#a6db2b, .25);
+            $blue: transparentize(#7ed3ea, .25);
+            @include linear-gradient(right bottom, $blue, $green, $fallback: transparent);
+            @include transform( skew(-30deg, 0) translate(-50%, 0) );
+            position: absolute;
+            top: 0;
+            left: 50%;
+            z-index: 0;
+            content: '';
+            min-width: 40em;
+            width: 50%;
+            height: 100%;
+        }
+
+        > * {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    h1 {
+        border-bottom: 4px dashed rgba(0, 0, 0, 0.5);
+    }
+
+    .button {
+        background-color: #a6db2b;
+        color: #fff;
+
+        &:hover {
+            background-color: #7ed3ea;
+        }
+    }
+
+    .credit {
+        bottom: 2em;
+        right: 2em;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    .init {
+        top: 2em;
+        left: 2em;
+    }
+
+    @media (max-width: 30em) {
+        .init,
+        .credit {
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+    }
+}
